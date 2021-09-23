@@ -3,16 +3,7 @@
 namespace Modules\Exemplo\Console;
 
 use Illuminate\Console\Command;
-use Modules\Acert\Services\AcertTypeErrors;
-use Modules\Adiq\Services\AdiqTypesErrors;
-use Modules\Base\Services\Errors\BaseTypeErrors;
-use Modules\Bigdatacorp\Services\Error\BigdatacorpTypesErrors;
-use Modules\Bs2\Services\Bs2TypesErrors;
-use Modules\Celcoin\Services\Errors\CelcoinTypeErrors;
-use Modules\Contact\Services\Error\ContactTypesErrors;
-use Modules\Finance\Services\Error\FinanceTypesErrors;
-use Modules\Klavi\Services\Errors\KlaviErrorTypes;
-use Modules\Mercadopago\Services\Error\MercadopagoTypesErrors;
+use Modules\Contact\Repository\UserRepository;
 use Symfony\Component\Console\Input\InputOption;
 
 class TestCommand extends Command
