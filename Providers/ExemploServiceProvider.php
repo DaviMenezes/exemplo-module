@@ -2,8 +2,9 @@
 
 namespace Modules\Exemplo\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Illuminate\Support\ServiceProvider;
+use Modules\Exemplo\Console\TestCommand;
 
 class ExemploServiceProvider extends ServiceProvider
 {
