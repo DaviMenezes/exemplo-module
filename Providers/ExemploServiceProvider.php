@@ -30,6 +30,7 @@ class ExemploServiceProvider extends ServiceProvider
         $this->registerViews();
         $this->registerFactories();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
+        $this->registerCommands();
     }
 
     /**
@@ -122,5 +123,11 @@ class ExemploServiceProvider extends ServiceProvider
             }
         }
         return $paths;
+    }
+
+    protected function registerCommands()
+    {
+        $this->app->bind('command.exemplo:test', TestCommand::class);
+        $this->commands(['command.exemplo:test']);
     }
 }
