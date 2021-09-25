@@ -3,7 +3,6 @@
 namespace Modules\Exemplo\Console;
 
 use Illuminate\Console\Command;
-use Modules\Contact\Repository\UserRepository;
 use Symfony\Component\Console\Input\InputOption;
 
 class TestCommand extends Command
