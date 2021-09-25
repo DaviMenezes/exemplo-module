@@ -38,20 +38,7 @@ class TestCommand extends Command
      */
     public function handle()
     {
-        $errors = collect(BaseTypeErrors::errorMessages());//1000
-        $fn = function ($array) use ($errors) {
-            collect($array)->map(fn($value, $key) => $errors->put($key, $value));
-        };
-        $fn(AcertTypeErrors::errorMessages());//2000
-        $fn(BigdatacorpTypesErrors::errorMessages());//3000
-        $fn(Bs2TypesErrors::errorMessages());//4000
-        $fn(ContactTypesErrors::errorMessages());//5000
-        $fn(FinanceTypesErrors::errorMessages());//6000
-        $fn(KlaviErrorTypes::errorMessages());//7000
-        $fn(CelcoinTypeErrors::errorMessages());//8000
-        $fn(AdiqTypesErrors::errorMessages());//9000
-        $fn(MercadopagoTypesErrors::errorMessages());//10000
-        $this->info(json_encode($errors->toJson(JSON_PRETTY_PRINT)));
+        $this->info('teste');
     }
 
     /**
