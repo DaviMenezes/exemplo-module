@@ -2,8 +2,9 @@
 
 namespace Modules\Exemplo\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Illuminate\Support\ServiceProvider;
+use Modules\Exemplo\Console\TestCommand;
 
 class ExemploServiceProvider extends ServiceProvider
 {
@@ -29,6 +30,7 @@ class ExemploServiceProvider extends ServiceProvider
         $this->registerViews();
         $this->registerFactories();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
+        $this->registerCommands();
     }
 
     /**
@@ -121,5 +123,11 @@ class ExemploServiceProvider extends ServiceProvider
             }
         }
         return $paths;
+    }
+
+    protected function registerCommands()
+    {
+        $this->app->bind('command.exemplo:test', TestCommand::class);
+        $this->commands(['command.exemplo:test']);
     }
 }
