@@ -27,6 +27,6 @@ class LoginHttpService extends ExemploHttpServiceContract
 
     protected function errorType(): int
     {
-        return ExemploErrorTypes::LOGIN_ERROR;
+        return ExemploErrorTypes::EXEMPLO1;
     }
 }
