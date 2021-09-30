@@ -19,6 +19,6 @@ class ExemploListHttpService extends ExemploHttpServiceContract
 
     protected function errorType(): int
     {
-        return ExemploErrorTypes::LIST_ERROR;
+        return ExemploErrorTypes::EXEMPLO2;
     }
 }

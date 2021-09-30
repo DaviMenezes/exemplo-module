@@ -2,18 +2,19 @@
 
 namespace Modules\Exemplo\Services\Errors;
 
-use Modules\Base\Services\Errors\BaseErrorType;
 
-class ExemploErrorTypes extends BaseErrorType
+use Modules\Base\Services\Errors\BaseTypeErrors;
+
+class ExemploErrorTypes extends BaseTypeErrors
 {
-    const LOGIN_ERROR = 1001;
-    const LIST_ERROR = 1002;
+    const EXEMPLO1 = 100001;
+    const EXEMPLO2 = 100002;
 
     public static function errorMessages(): array
     {
         return [
-            self::LOGIN_ERROR => 'Falha ao efetuar login na XPTO api',
-            self::LIST_ERROR => 'Falha ao listar os dados na XPTO api'
+            self::EXEMPLO1 => 'Falha ao efetuar login na XPTO api',
+            self::EXEMPLO2 => 'Falha ao listar os dados na XPTO api'
         ];
     }
 }

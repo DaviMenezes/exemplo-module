@@ -4,9 +4,11 @@ namespace Modules\Exemplo\Providers;
 
 use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\ServiceProvider;
+use Modules\Base\Providers\BaseServiceProviderInterface;
 use Modules\Exemplo\Console\TestCommand;
+use Modules\Exemplo\Services\Errors\ExemploErrorTypes;
 
-class ExemploServiceProvider extends ServiceProvider
+class ExemploServiceProvider extends ServiceProvider implements BaseServiceProviderInterface
 {
     /**
      * @var string $moduleName
@@ -129,5 +131,10 @@ class ExemploServiceProvider extends ServiceProvider
     {
         $this->app->bind('command.exemplo:test', TestCommand::class);
         $this->commands(['command.exemplo:test']);
+    }
+
+    public static function errorTypeClass()
+    {
+        return ExemploErrorTypes::class;
     }
 }
