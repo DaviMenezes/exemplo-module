@@ -4,25 +4,41 @@ namespace Modules\Exemplo\Services;
 
 use Modules\Base\Services\HttpContract;
 use Modules\Exemplo\Domains\ExemploLoginDomain;
-use Modules\Exemplo\Entities\TokenEntity;
+use Modules\Exemplo\Entities\ExemploTokenEntity;
 
 abstract class ExemploHttpServiceContract extends HttpContract
 {
 
     protected function url()
     {
-        return 'https://sandbox.exemplo.com'.$this->endPoint();
+        return 'https://webhook.site';
     }
 
     protected function accessToken(): ?string
     {
-        if (is_a($this, LoginHttpService::class)) {
+        return null;
+//        return $this->getToken();
+    }
+
+    protected function loginContract()
+    {
+        return ExemploLoginHttpService::class;
+    }
+
+    protected function moduleName(): string
+    {
+        return 'Exemplo';
+    }
+
+    protected function getToken()
+    {
+        if (is_a($this, ExemploLoginHttpService::class)) {
             return null;
         }
 
-        /**@var TokenEntity $token*/
-        if ($token = cache()->get('exemplo.token')) {
-            if (now()->lessThan($token->expiration_date)) {
+        /**@var ExemploTokenEntity $token */
+        if ($token = ExemploTokenEntity::accessToken()) {
+            if (now()->lessThan($token->expires)) {
                 return $token->token;
             }
         }
