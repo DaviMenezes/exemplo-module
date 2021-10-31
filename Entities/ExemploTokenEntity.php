@@ -20,6 +20,6 @@ class ExemploTokenEntity extends TokenEntity
 
     public static function accessToken()
     {
-        return cache()->get('exemplo.token');
+        return cache()->get(config('exemplo.name') . '.token');
     }
 }
