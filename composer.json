@@ -1,6 +1,7 @@
 {
     "name": "davimenezes/exemplo-module",
     "description": "Modulo exemplo",
+    "type": "laravel-module",
     "authors": [
         {
             "name": "Davi Menezes",
