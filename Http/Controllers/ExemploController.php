@@ -2,13 +2,18 @@
 
 namespace Modules\Exemplo\Http\Controllers;
 
-use Illuminate\Routing\Controller;
+use Modules\Base\Http\Controllers\BaseController;
 use Modules\Exemplo\Domains\ExemploListDomain;
 
-class ExemploController extends Controller
+class ExemploController extends BaseController
 {
-    public function list()
+    public function test()
     {
-        return (new ExemploListDomain())->list();
+        request()->validate([
+            'name' => 'required'
+        ]);
+        return $this->run('Testar requisição', function () {
+            return (new ExemploListDomain())->test(request()->only(['name']));
+        });
     }
 }

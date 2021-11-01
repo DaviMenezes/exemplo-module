@@ -4,7 +4,7 @@ namespace Modules\Exemplo\Services;
 
 use Modules\Exemplo\Services\Errors\ExemploErrorTypes;
 
-class ExemploListHttpService extends ExemploHttpServiceContract
+class ExemploTestHttpService extends ExemploHttpServiceContract
 {
 
     public function run()
@@ -14,7 +14,7 @@ class ExemploListHttpService extends ExemploHttpServiceContract
 
     protected function endPoint()
     {
-        return '/list';
+        return '/7e727090-c123-4e63-8b70-d7b47cfe1be8';
     }
 
     protected function errorType(): int

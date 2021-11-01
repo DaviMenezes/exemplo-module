@@ -2,20 +2,16 @@
 
 namespace Modules\Exemplo\Domains;
 
-use Modules\Exemplo\Services\ExemploListHttpService;
+use Modules\Exemplo\Services\ExemploTestHttpService;
 
 class ExemploListDomain
 {
-    public function list()
+    public function test($data)
     {
-        $response = (new ExemploListHttpService())->run();
+        $response = (new ExemploTestHttpService(['name' => $data['name']]))->run();
         if ($response->baseResponse->hasError()) {
-            //do something
-            return $response->baseResponse;
+            $response->baseResponse->setMsg('Tente novamente mais tarde');
         }
-        $data = $response->serviceResponse->json();
-        //do something with $data result
-
         return $response->baseResponse;
     }
 }

@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Modules\Exemplo\Http\Controllers\ExemploController;
 
 /*
@@ -14,4 +13,6 @@ use Modules\Exemplo\Http\Controllers\ExemploController;
 |
 */
 
-Route::middleware('auth:api')->get('/list', [ExemploController::class, '']);
+Route::prefix('exemplo')->group(function () {
+    Route::post('/test', [ExemploController::class, 'test']);
+});

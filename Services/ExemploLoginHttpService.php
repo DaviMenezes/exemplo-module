@@ -4,7 +4,7 @@ namespace Modules\Exemplo\Services;
 
 use Modules\Exemplo\Services\Errors\ExemploErrorTypes;
 
-class LoginHttpService extends ExemploHttpServiceContract
+class ExemploLoginHttpService extends ExemploHttpServiceContract
 {
 
     public function run()
